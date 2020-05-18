@@ -4,6 +4,7 @@ import com.pluralsight.conferencedemo.models.Session;
 import com.pluralsight.conferencedemo.repositories.SessionRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,6 +26,7 @@ public class SessionsController {
         return sessionRepository.getOne(id);
     }
 
+    //@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     @PostMapping
     public Session create(@RequestBody final Session session) {
         return sessionRepository.saveAndFlush(session);
